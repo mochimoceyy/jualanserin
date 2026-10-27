@@ -72,6 +72,17 @@ footer{margin:50px 0 30px;text-align:center;color:var(--mute);font-size:.9rem}
 .agree input{width:20px;height:20px;padding:0;flex:none;margin-top:2px;accent-color:var(--brown)}
 .agree.need{color:#c0392b}
 .btn.off{opacity:.45;cursor:not-allowed;transform:none}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.greet{max-width:520px;margin:0 auto 22px;padding:16px 20px;border-radius:20px;background:rgba(255,250,243,.72);border:1.5px dashed #c49a6c}
+.greet h2{font-size:1.35rem;color:#5a2328}
+.greet .clock{font-family:Fraunces,serif;font-weight:700;font-size:2rem;color:#8a5a3c;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.greet p{margin:6px auto 0;font-size:.98rem}
+textarea{font:inherit;padding:12px 16px;border-radius:18px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);outline:none;width:100%;resize:vertical;min-height:110px}
+textarea:focus{border-color:var(--brown)}
+.form{display:grid;gap:10px}
+.form input{background:var(--bg)}
+.form label{font-weight:700;font-size:.9rem}
+.note{font-size:.88rem;color:var(--mute);margin:0}
 </style>
 </head>
 <body>
@@ -87,7 +98,8 @@ footer{margin:50px 0 30px;text-align:center;color:var(--mute);font-size:.9rem}
 <script>
 // ====== EDIT DI SINI ======
 var WA="6285747153933";            // nomor WhatsApp admin (format 62…)
-var IG="@jualanserin";             // ganti dengan Instagram kamu
+var X="premihum3";                 // akun X (Twitter)
+var CHANNEL="https://whatsapp.com/channel/0029Vb93zeQDZ4LQncmOaJ0g"; // saluran WA testimoni
 var JAM="Setiap hari, 08.00 – 22.00 WIB";
 // harga = contoh, silakan sesuaikan
 var APPS=[
@@ -119,7 +131,7 @@ var APPS=[
 {id:"viu",n:"Viu Premium",e:"🌷",c:"Streaming",d:"Drakor fresh, subtitle lengkap.",l:"Viu Premium cocok buat pecinta drakor dan variety show: tanpa iklan, episode lebih cepat, dan subtitle bahasa Indonesia.",
  p:[["1 hari",3000],["3 hari",6000],["7 hari",10000],["1 bulan",15000],["3 bulan",25000],["6 bulan",40000],["1 tahun",50000]],
  i:["Paket harian tanyakan stok dulu ke admin."]},
-{id:"getcontact",n:"Get Contact",e:"📇",c:"Utilitas",d:"Cek nama penelepon tak dikenal.",l:"Get Contact Premium bantu kamu mengenali nomor asing, memblokir spam, dan menyembunyikan tag nama kamu di orang lain.",
+{id:"getcontact",n:"Get Contact",e:"📇",c:"Pendidikan & Pekerjaan",d:"Cek nama penelepon tak dikenal.",l:"Get Contact Premium bantu kamu mengenali nomor asing, memblokir spam, dan menyembunyikan tag nama kamu di orang lain.",
  p:[["1 bulan",18000]]},
 {id:"iqiyi",n:"iQIYI VIP",e:"🍓",c:"Streaming",d:"Drama & variety Asia terlengkap.",l:"iQIYI VIP menyediakan drama, anime, dan variety show Asia. Tanpa iklan, kualitas HD, dan update lebih cepat.",
  p:[["1 hari",4000],["3 hari",8000],["7 hari",15000],["1 bulan",25000],["3 bulan",40000],["1 tahun",55000]]},
@@ -129,18 +141,44 @@ var APPS=[
 {id:"meitu",n:"Meitu VIP",e:"✨",c:"Desain",d:"Edit foto cantik dan natural.",l:"Meitu VIP membuka filter, efek, dan tools retouch premium. Foto jadi glowing tanpa watermark.",
  p:[["7 hari VIP",15000],["7 hari VIP+",25000]],
  i:["VIP tidak bisa HD gambar.","Support iOS/Android."]},
-{id:"chatgpt",n:"ChatGPT",e:"🤖",c:"Utilitas",d:"Asisten AI pintar buat tugas & kerja.",l:"ChatGPT membantu menulis, belajar, coding, sampai bikin ide konten. Dapat akses model terbaru dan respons lebih cepat.",
+{id:"chatgpt",n:"ChatGPT",e:"🤖",c:"Pendidikan & Pekerjaan",d:"Asisten AI pintar buat tugas & kerja.",l:"ChatGPT membantu menulis, belajar, coding, sampai bikin ide konten. Dapat akses model terbaru dan respons lebih cepat.",
  p:["ChatGPT Plus",["1 hari",10000],["3 hari",15000],["7 hari",20000],["1 bulan",40000],"ChatGPT Go",["1 bulan",35000]],
  i:["Tidak bisa Codex.","Wajib backup data."]},
 {id:"crunchyroll",n:"Crunchyroll",e:"🍥",c:"Streaming",d:"Anime simulcast tanpa iklan.",l:"Crunchyroll Premium: ribuan judul anime, tayang hampir bersamaan dengan Jepang, tanpa iklan, dan bisa download.",
- p:[["7 hari",12000],["1 bulan",20000],["1 tahun",35000]]}
-];var TESTI=[
-["Nadia, Jogja","Fast respon banget! Netflix langsung aktif 5 menit setelah bayar. Auto langganan deh 🥹"],
-["Rafi, Bandung","Canva Pro-nya aman, murah pula. Tugas kuliah jadi cakep semua, makasih Serin!"],
-["Putri, Surabaya","Adminnya ramah banget, dijelasin pelan-pelan. Spotify aman sampai sekarang 🎧"],
-["Dimas, Jakarta","Udah beli CapCut dan Vidio, dua-duanya lancar jaya. Recommended!"],
-["Ayu, Semarang","Awalnya ragu, ternyata amanah. Garansinya beneran dibantu pas ada kendala."],
-["Kevin, Medan","Harga paling bersahabat di dompet anak kos. Bakal balik lagi buat ChatGPT 🤖"]
+ p:[["7 hari",12000],["1 bulan",20000],["1 tahun",35000]]},
+{id:"alightmotion",n:"Alight Motion",e:"🌀",c:"Desain",d:"Edit video & animasi tanpa watermark.",l:"Alight Motion Pro membuka semua efek, keyframe, dan elemen premium untuk bikin motion graphic & video edit. Hasil ekspor bersih tanpa watermark.",
+ p:[["1 bulan",15000],["1 tahun",30000]]},
+{id:"applemusic",n:"Apple Music",e:"🍎",c:"Musik",d:"Jutaan lagu, lossless & tanpa iklan.",l:"Apple Music menghadirkan jutaan lagu tanpa iklan, kualitas lossless, lirik real-time, dan bisa download untuk didengar offline.",
+ p:["Famplan",["1 bulan",23000]]},
+{id:"claude",n:"Claude Pro",e:"🧠",c:"Pendidikan & Pekerjaan",d:"Asisten AI cerdas buat nulis, belajar & coding.",l:"Claude Pro memberi akses model AI terbaru dari Anthropic dengan batas pemakaian lebih tinggi. Cocok buat menulis, merangkum dokumen, belajar, sampai coding.",
+ p:["Sharing 3U",["7 hari",65000],["1 bulan",170000],"Sharing 5U",["7 hari",60000],["1 bulan",150000],"Private",["7 hari",140000],["1 bulan",400000]]},
+{id:"gemini",n:"Gemini AI",e:"💎",c:"Pendidikan & Pekerjaan",d:"AI dari Google untuk ide, tugas & kerja.",l:"Gemini AI Pro dari Google membantu menulis, riset, merangkum, dan bikin ide, plus terhubung dengan Gmail, Docs, dan layanan Google lainnya.",
+ p:[["1 bulan",25000],["2 bulan",40000]]},
+{id:"ibispaint",n:"ibis Paint",e:"🖌️",c:"Desain",d:"Gambar digital tanpa iklan, fitur lengkap.",l:"ibis Paint Prime membuka semua brush, filter, dan fitur premium untuk menggambar digital tanpa iklan. Favorit para ilustrator!",
+ p:[["6 bulan",30000],["1 tahun",35000]],
+ i:["Tanyakan stok dulu ke admin."]},
+{id:"microsoft365",n:"Microsoft 365",e:"📊",c:"Pendidikan & Pekerjaan",d:"Word, Excel, PowerPoint versi premium.",l:"Microsoft 365 memberi akses Word, Excel, PowerPoint, dan aplikasi Office lainnya versi premium, plus penyimpanan OneDrive. Pas buat tugas dan kerja.",
+ p:[["1 bulan",15000]]},
+{id:"perplexity",n:"Perplexity AI",e:"🔎",c:"Pendidikan & Pekerjaan",d:"Mesin pencari AI dengan sumber jelas.",l:"Perplexity Pro menjawab pertanyaanmu lengkap dengan sumber terpercaya, bisa pilih berbagai model AI, dan cocok buat riset tugas maupun kerja.",
+ p:[["7 hari",23000],["1 bulan",40000]]},
+{id:"picsart",n:"Picsart",e:"🖼️",c:"Desain",d:"Edit foto & desain serba bisa.",l:"Picsart Gold membuka filter, stiker, font, dan tools AI premium untuk edit foto dan desain konten tanpa watermark.",
+ p:[["1 bulan Sharing",15000],["1 bulan Private",25000]]},
+{id:"rctiplus",n:"RCTI+",e:"📡",c:"Streaming",d:"TV lokal, sinetron & acara favorit.",l:"RCTI+ Premium menyajikan siaran RCTI, MNCTV, GTV, iNews, sinetron, dan acara favorit tanpa iklan dengan konten eksklusif.",
+ p:["Sharing 2U",["1 hari",6000],["3 hari",12000],["7 hari",15000],"Private",["1 hari",8000],["3 hari",15000],["7 hari",24000],["1 bulan",35000]]},
+{id:"viki",n:"Viki Plus",e:"💗",c:"Streaming",d:"Drama Asia dengan subtitle lengkap.",l:"Viki Plus (Rakuten Viki) punya koleksi drama Korea, China, Jepang, dan Thailand tanpa iklan, kualitas HD, dan subtitle lengkap.",
+ p:["Sharing",["1 bulan",20000],"Private",["7 hari",18000],["1 bulan",40000]]},
+{id:"visionplus",n:"Vision+",e:"👁️",c:"Streaming",d:"TV lokal, olahraga & original series.",l:"Vision+ menyajikan siaran TV nasional, olahraga, film, dan series original. Nonton tanpa iklan di konten premium.",
+ p:[["1 hari",6000],["3 hari",10000],["7 hari",15000],["1 bulan",25000]]},
+{id:"vsco",n:"VSCO",e:"📷",c:"Desain",d:"Filter foto estetik & editing pro.",l:"VSCO membuka ratusan preset estetik, tools edit foto & video, dan efek premium untuk feed yang makin cakep.",
+ p:["Sharing Plus",["6 bulan",25000],["1 tahun",35000],"Sharing Pro",["1 tahun",45000]]},
+{id:"wattpad",n:"Wattpad Premium",e:"📖",c:"Pendidikan & Pekerjaan",d:"Baca cerita favorit tanpa iklan.",l:"Wattpad Premium bikin kamu baca cerita tanpa iklan, dapat koin bonus, dan tampilan yang bisa dikustom sesukamu.",
+ p:[["1 bulan",15000],["1 tahun",35000]],
+ i:["Paket 1 tahun bergaransi 6 bulan sejak awal beli."]},
+{id:"youku",n:"Youku VIP",e:"🎐",c:"Streaming",d:"Drama China terbaru tanpa iklan.",l:"Youku VIP menyajikan drama China, variety show, dan anime terbaru tanpa iklan, kualitas HD, dan episode lebih cepat.",
+ p:[["1 hari",4000],["3 hari",7000],["7 hari",10000],["1 bulan",15000],["3 bulan",25000],["1 tahun",45000]]},
+{id:"zoom",n:"Zoom",e:"🎥",c:"Pendidikan & Pekerjaan",d:"Meeting online tanpa batas 40 menit.",l:"Zoom Pro bikin meeting, kelas online, atau webinar tanpa batas waktu 40 menit, dengan peserta lebih banyak dan fitur rekam.",
+ p:["100 Peserta",["1 jam",7000],["1 hari",15000],"300 Peserta",["1 jam",15000],["1 hari",35000]],
+ i:["Untuk durasi & jumlah peserta lebih dari yang tertera di atas, boleh ditanyakan ke admin yaa."]}
 ];
 // ====== SAMPAI SINI ======
 var $=function(s){return document.querySelector(s)};
@@ -155,13 +193,28 @@ function head(t,s){return '<div class="sec"><h2>'+t+'</h2><p>'+s+'</p></div>'}
 
 function home(){
 var stars=[["8%","14%"],["88%","18%"],["14%","78%"],["92%","72%"],["50%","6%"]].map(function(p,i){return '<span class="st" style="left:'+p[0]+';top:'+p[1]+';font-size:'+(1+i*.25)+'rem">★</span>'}).join("");
-return '<section class="hero">'+stars+'<h1 style="margin-bottom:22px">Selamat datang di Jualan Serin 🎀</h1><a class="btn" href="#produk">Lihat Daftar Harga</a></section>'
-+head("Daftar Harga 💰","Klik aplikasinya buat lihat penjelasan & semua paketnya.")
+return '<section class="hero">'+stars+greetHTML()+'<div class="cta"><a class="btn" href="#produk">Lihat Daftar Harga</a><a class="btn alt" target="_blank" rel="noopener" href="'+CHANNEL+'">🥰 Testimoni</a><a class="btn alt" href="#kontak">💌 Kontak</a></div></section>'
++head("Daftar Harga 💰","Silahkan kakak, no rush order yap!")
 +'<div class="grid">'+APPS.map(cardHTML).join("")+'</div>'
++head("Tanya-tanya yang sering muncul","")
++'<div class="card"><p><b>Aman nggak?</b><br>Aman! Ada garansi dan admin siap bantu.</p><p><b>Bayarnya pakai apa?</b><br>Transfer bank, e-wallet, atau QRIS. Detailnya dikasih admin.</p><p><b>Kalau akun bermasalah?</b><br>Langsung chat admin, kami bantu sampai beres.</p></div>'
 +head("Cara belinya gampang banget","Tiga langkah, selesai!")
 +'<div class="steps card"><div>Pilih aplikasi & paket yang kamu mau di daftar harga.</div><div>Chat admin lewat WhatsApp, kirim nama aplikasinya.</div><div>Bayar, tunggu sebentar, akun siap dipakai. Happy nonton! 🍿</div></div>'}
 
-function testi(t){return '<div class="card"><div style="color:var(--tan)">★★★★★</div><p style="margin:8px 0">“'+t[1]+'”</p><b>— '+t[0]+'</b></div>'}
+var GREET=[
+[4,"Selamat pagi","☀️",["Semoga harimu secerah senyummu hari ini! Serin udah siap bantu dari pagi, jadi santai aja ya 🤎","Pagi-pagi udah mampir, makasih banyak ya! Yuk mulai hari dengan hiburan premium tanpa ribet ✨"]],
+[11,"Selamat siang","🌤️",["Jangan lupa makan siang dan minum air putih ya! Sambil istirahat, Serin temenin pilih aplikasi favoritmu 🍱","Siang-siang gini enaknya rebahan sambil nonton. Serin siap bantu kamu kapan pun 🤎"]],
+[15,"Selamat sore","🌇",["Semoga capekmu hari ini terbayar ya. Pelan-pelan aja pilihnya, Serin dengan senang hati bantu kamu 🤎","Sore yang hangat buat kamu yang udah berjuang seharian! Yuk, manjakan dirimu sedikit 🍵"]],
+[18,"Selamat malam","🌙",["Terima kasih sudah mampir di penghujung harimu. Istirahat yang cukup ya, biar Serin yang urus hiburanmu 🤎","Malam-malam gini paling pas maraton film. Tanya apa aja, Serin balas dengan senang hati ✨"]]];
+function greetNow(){var d=new Date(),h=d.getHours(),g=GREET[3];for(var k=0;k<4;k++)if(h>=GREET[k][0]&&(k===3||h<GREET[k+1][0]))g=GREET[k];if(h<4)g=GREET[3];return {d:d,g:g}}
+function clockText(d){var z=-d.getTimezoneOffset()/60,tz={7:"WIB",8:"WITA",9:"WIT"}[z]||"";return [d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return String(n).padStart(2,"0")}).join(".")+(tz?" "+tz:"")}
+function greetHTML(){var n=greetNow(),m=n.g[3][n.d.getDate()%n.g[3].length];return '<div class="greet" id="greet"><h2>'+n.g[1]+', kak! '+n.g[2]+'</h2><div class="clock" id="clock">'+clockText(n.d)+'</div><p>'+m+'</p><p class="note" style="margin-top:8px">'+n.d.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"})+'</p></div>'}
+var greetKey="";
+function tick(){var c=$("#clock");if(!c)return;var n=greetNow();if(greetKey&&greetKey!==n.g[1]){$("#greet").outerHTML=greetHTML()}else c.textContent=clockText(n.d);greetKey=n.g[1]}
+setInterval(tick,1000);
+
+function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function testi(t){return '<div class="card"><div style="color:var(--tan)">★★★★★</div><p style="margin:8px 0;white-space:pre-line">“'+esc(t.message)+'”</p><b>— '+esc(t.name)+'</b>'+(t.createdAt?'<p class="note">'+new Date(t.createdAt).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})+'</p>':'')+'</div>'}
 
 function produk(){
 var cats=["Semua"].concat(APPS.map(function(a){return a.c}).filter(function(c,i,s){return s.indexOf(c)===i}));
@@ -189,23 +242,36 @@ m.innerHTML='<div class="box card" role="dialog" aria-modal="true" aria-labelled
 m.hidden=false}
 function closeInfo(){var m=$("#modal");m.hidden=true;m.innerHTML=""}
 
-function testimoni(){return head("Testimoni 🥰","Cerita seru dari pelanggan Serin")+'<div class="grid">'+TESTI.map(testi).join("")+'</div><p style="text-align:center;margin-top:24px">Udah belanja? <a class="btn" target="_blank" rel="noopener" href="'+wa("Halo Serin, aku mau kirim testimoni!")+'">Kirim testimonimu</a></p>'}
+var TESTI=null;
+function loadTesti(){fetch("/api/testimonials").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){TESTI=d;showTesti()}).catch(function(){TESTI=TESTI||[];showTesti("Gagal memuat testimoni, coba muat ulang halaman ya.")})}
+function showTesti(err){var l=$("#tl");if(!l)return;l.innerHTML=err?'<div class="empty"><p>'+err+'</p></div>':TESTI.length?'<div class="grid">'+TESTI.map(testi).join("")+'</div>':'<div class="empty"><div class="em">💭</div><p>Belum ada testimoni di sini. Jadilah yang pertama berbagi cerita, ya!</p></div>'}
+function testimoni(){return head("Testimoni 🥰","Bukti nyata dari pelanggan Serin")
++'<div class="card" style="text-align:center"><div class="em">📢</div><h3>Saluran WhatsApp Testimoni</h3><p>Semua bukti transaksi & testimoni asli pelanggan Serin dikumpulkan di saluran WhatsApp.</p><a class="btn" target="_blank" rel="noopener" href="'+CHANNEL+'">Lihat Testimoni</a></div>'
++head("Kata Mereka 💬","Udah beli? Yuk ceritain pengalaman kamu di sini!")
++'<div class="two"><div id="tl"><div class="empty"><p>Memuat testimoni…</p></div></div>'
++'<form class="card form" id="tf"><h3>Tulis testimonimu ✍️</h3><label for="tn">Nama</label><input id="tn" name="name" maxlength="60" required placeholder="Nama kamu (boleh nama panggilan)"><label for="tm">Testimoni</label><textarea id="tm" name="message" maxlength="500" required placeholder="Tulis pengalamanmu setelah beli…"></textarea><button class="btn" type="submit">Kirim Testimoni</button><p class="note" id="ts" role="status"></p></form></div>'}
 
 function kontak(){return head("Hubungi Admin 💌","Jangan malu-malu, kami senang banget disapa!")
-+'<div class="grid"><div class="card"><div class="em">💬</div><h3>WhatsApp</h3><p>Paling cepat dibalas.</p><a class="btn" target="_blank" rel="noopener" href="'+wa("Halo Serin, aku mau tanya produk")+'">Chat sekarang</a></div><div class="card"><div class="em">📸</div><h3>Instagram</h3><p>'+IG+'<br>Lihat promo & testi terbaru.</p></div><div class="card"><div class="em">🕗</div><h3>Jam Layanan</h3><p>'+JAM+'</p></div></div>'
-+head("Tanya-tanya yang sering muncul","")
-+'<div class="card"><p><b>Aman nggak?</b><br>Aman! Ada garansi dan admin siap bantu.</p><p><b>Bayarnya pakai apa?</b><br>Transfer bank, e-wallet, atau QRIS. Detailnya dikasih admin.</p><p><b>Kalau akun bermasalah?</b><br>Langsung chat admin, kami bantu sampai beres.</p></div>'}
++'<div class="grid"><div class="card"><div class="em">💬</div><h3>WhatsApp</h3><p>Paling cepat dibalas.</p><a class="btn" target="_blank" rel="noopener" href="'+wa("Halo Serin, aku mau tanya produk")+'">Chat sekarang</a></div><div class="card"><div class="em">𝕏</div><h3>X (Twitter)</h3><p>@'+X+'<br>Ikuti buat info promo terbaru.</p><a class="btn" target="_blank" rel="noopener" href="https://x.com/'+X+'">Kunjungi X</a></div><div class="card"><div class="em">🕗</div><h3>Jam Layanan</h3><p>'+JAM+'</p></div></div>'}
 
 function render(){
 var h=(location.hash||"#home").slice(1),v;
 if(h.indexOf("app-")===0)v=detail(h.slice(4));else if(h==="produk")v=produk();else if(h==="testimoni")v=testimoni();else if(h==="kontak")v=kontak();else v=home();
-$("#app").innerHTML=v;
+$("#app").innerHTML=v;greetKey="";
+if(h==="testimoni"){if(TESTI)showTesti();loadTesti()}
 var cur=h.indexOf("app-")===0?"produk":h;
 $("#nav").innerHTML=[["home","Beranda"],["produk","Harga"],["testimoni","Testimoni"],["kontak","Kontak"]].map(function(x){return '<a href="#'+x[0]+'"'+(x[0]===cur?' class="on"':'')+'>'+x[1]+'</a>'}).join("");
 document.title="Jualan Serin ✦ Aplikasi Premium Murah & Aman";
 window.scrollTo(0,0)}
 
 $("#app").addEventListener("click",function(e){var u=e.target.closest(".buy");if(u){openInfo(APPS.find(function(x){return x.id===u.dataset.a}),+u.dataset.k);return}var b=e.target.closest(".chip");if(b){cat=b.dataset.c;var y=window.scrollY;render();window.scrollTo(0,y)}});
+$("#app").addEventListener("submit",function(e){if(e.target.id!=="tf")return;e.preventDefault();var f=e.target,b=f.querySelector("button"),st=$("#ts"),name=f.elements.name.value.trim(),msg=f.elements.message.value.trim();
+if(!name||!msg){st.textContent="Nama dan testimoni wajib diisi ya 🤎";return}
+b.disabled=true;b.classList.add("off");st.textContent="Mengirim…";
+fetch("/api/testimonials",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:name,message:msg})}).then(function(r){return r.json().then(function(d){if(!r.ok)throw new Error(d.error||"Gagal");return d})})
+.then(function(d){TESTI=[d].concat(TESTI||[]);showTesti();f.reset();st.textContent="Makasih banyak, testimonimu sudah tampil! 🥰"})
+.catch(function(err){st.textContent=(err&&err.message&&err.message!=="Gagal"?err.message:"Gagal mengirim, coba lagi sebentar ya.")})
+.finally(function(){b.disabled=false;b.classList.remove("off")})});
 $("#q").addEventListener("input",function(e){query=e.target.value;if(location.hash!=="#produk"){location.hash="#produk"}else{var y=window.scrollY;render();window.scrollTo(0,y)}});
 $("#modal").addEventListener("change",function(e){if(e.target.id==="ok"){var g=$("#go");g.classList.toggle("off",!e.target.checked);g.setAttribute("aria-disabled",!e.target.checked)}});
 $("#modal").addEventListener("click",function(e){if(e.target.id==="mx"||e.target.id==="modal"){closeInfo();return}if(e.target.closest("#go")){if(!$("#ok").checked){e.preventDefault();$(".agree").classList.add("need")}else closeInfo()}});
